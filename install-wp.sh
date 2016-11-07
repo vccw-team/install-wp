@@ -9,7 +9,7 @@ WP_TITLE='Welcome to the WordPress'
 WP_DESC='Hello World!'
 
 if [ ! $WP_PATH ]; then
-  WP_PATH=/tmp/wp-behat-tests
+  WP_PATH=/tmp/wp-tests
 fi
 
 if [ -e $WP_PATH ]; then
