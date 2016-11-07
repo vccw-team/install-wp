@@ -3,7 +3,7 @@
 set -ex;
 
 if [ ! $WP_PATH ]; then
-  WP_PATH=/tmp/wp-tests
+  WP_PATH=/tmp/wp-behat-tests
 fi
 
 if [ ! $WP_PORT ]; then
