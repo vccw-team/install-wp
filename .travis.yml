@@ -11,7 +11,8 @@ env:
 
 before_install:
   - curl https://raw.githubusercontent.com/vccw-team/install-wp/master/install-wp.sh | /usr/bin/env bash
-  - curl https://raw.githubusercontent.com/vccw-team/install-wp/master/run-wp.sh | /usr/bin/env bash
+  - curl -o run.sh https://raw.githubusercontent.com/vccw-team/install-wp/master/run-wp.sh
+  - /usr/bin/env bash ./run.sh >/dev/null 2>&1 &
 
 script:
   - ls -al $WP_PATH/wp-config.php
