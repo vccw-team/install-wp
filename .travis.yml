@@ -10,8 +10,8 @@ env:
     - WP_VERSION=4.5 WP_PORT=8080 WP_PATH=/tmp/wp2
 
 before_install:
-  - /usr/bin/env bash ./insall-wp.sh
-  - /usr/bin/env bash ./run-wp.sh >/dev/null 2>&1 &
+  - curl https://raw.githubusercontent.com/vccw-team/install-wp/master/install-wp.sh | /usr/bin/env bash
+  - curl https://raw.githubusercontent.com/vccw-team/install-wp/master/run-wp.sh | /usr/bin/env bash >/dev/null 2>&1 &
 
 script:
   - ls -al $WP_PATH/wp-config.php
