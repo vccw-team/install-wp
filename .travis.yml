@@ -15,4 +15,4 @@ before_install:
 
 script:
   - ls -al $WP_PATH/wp-config.php
-  - curl http://localhost:$WP_PORT/
+  - curl http://127.0.0.1:${WP_PORT}/
