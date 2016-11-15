@@ -67,8 +67,8 @@ PHP
 ./wp-cli-nightly.phar user create editor editor@example.com --role=editor --user_pass=editor --path=$WP_PATH
 
 ./wp-cli-nightly.phar plugin install wordpress-importer --activate --path=$WP_PATH
-curl -o /tmp/theme-unit-test-data.xml https://raw.githubusercontent.com/vccw-team/install-wp/master/theme-unit-test-data.xml
-./wp-cli-nightly.phar import /tmp/theme-unit-test-data.xml --authors=create --path=$WP_PATH > /dev/null 2>&1
+curl -o /tmp/themeunittestdata.wordpress.xml https://raw.githubusercontent.com/WPTRT/theme-unit-test/master/themeunittestdata.wordpress.xml
+./wp-cli-nightly.phar import /tmp/themeunittestdata.wordpress.xml --authors=create --path=$WP_PATH > /dev/null 2>&1
 
 if [ $WP_THEME ]; then
   ./wp-cli-nightly.phar theme install $WP_THEME --activate --path=$WP_PATH --force
