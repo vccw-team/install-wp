@@ -28,6 +28,7 @@ fi
 
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar
 chmod 755 ./wp-cli-nightly.phar
+echo "path: $WP_PATH" > wp-cli.yml
 
 ./wp-cli-nightly.phar core download --path=$WP_PATH --locale=en_US --version=$WP_VERSION --force
 
