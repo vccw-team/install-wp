@@ -27,3 +27,4 @@ Then you can access [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
 | `WP_DB_NAME`     | MySQL database name. Default is `wp-tests`.                |
 | `WP_DB_USER`     | MySQL database user. Default is `root`.                    |
 | `WP_DB_PASSWORD` | MySQL password. Default is empty.                          |
+| `WP_ERROR_LOG`   | Path to the error log.                                     |
