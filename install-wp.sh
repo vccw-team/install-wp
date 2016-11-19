@@ -2,35 +2,28 @@
 
 set -ex;
 
-DB_USER=root
-DB_NAME=wp-behat-tests
+WP_PATH=${WP_PATH-/tmp/wp-tests}
+WP_PORT=${WP_PORT-8080}
+WP_VERSION=${WP_VERSION-latest}
+WP_DB_NAME=${WP_DB_NAME-wp-tests}
+WP_DB_USER=${WP_DB_USER-root}
+WP_DB_PASSWORD=${WP_DB_PASSWORD-""}
 
 WP_TITLE='Welcome to the WordPress'
 WP_DESC='Hello World!'
 
-if [ ! $WP_PATH ]; then
-  WP_PATH=/tmp/wp-tests
-fi
 
 if [ -e $WP_PATH ]; then
   rm -fr $WP_PATH
 fi
 
-if [ ! $DB_PASS ]; then
+if [ ! $WP_DB_PASSWORD ]; then
   DB_PASS=""
-  mysql -e "drop database IF EXISTS \`$DB_NAME\`;" -uroot
-  mysql -e "create database IF NOT EXISTS \`$DB_NAME\`;" -uroot
+  mysql -e "drop database IF EXISTS \`$WP_DB_NAME\`;" -uroot
+  mysql -e "create database IF NOT EXISTS \`$WP_DB_NAME\`;" -uroot
 else
-  mysql -e "drop database IF EXISTS \`$DB_NAME\`;" -uroot -p"$DB_PASS"
-  mysql -e "create database IF NOT EXISTS \`$DB_NAME\`;" -uroot -p"$DB_PASS"
-fi
-
-if [ ! $WP_VERSION ]; then
-  WP_VERSION=latest
-fi
-
-if [ ! $WP_PORT ]; then
-  WP_PORT=8080
+  mysql -e "drop database IF EXISTS \`$WP_DB_NAME\`;" -uroot -p"$WP_DB_PASSWORD"
+  mysql -e "create database IF NOT EXISTS \`$WP_DB_NAME\`;" -uroot -p"$WP_DB_PASSWORD"
 fi
 
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar
@@ -41,9 +34,9 @@ chmod 755 ./wp-cli-nightly.phar
 ./wp-cli-nightly.phar core config \
 --path=$WP_PATH \
 --dbhost=localhost \
---dbname="$DB_NAME" \
---dbuser="$DB_USER" \
---dbpass="$DB_PASS" \
+--dbname="$WP_DB_NAME" \
+--dbuser="$WP_DB_USER" \
+--dbpass="$WP_DB_PASSWORD" \
 --dbprefix=wp_ \
 --locale=en_US \
 --extra-php <<PHP

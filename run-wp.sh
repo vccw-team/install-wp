@@ -2,13 +2,8 @@
 
 set -ex;
 
-if [ ! $WP_PATH ]; then
-  WP_PATH=/tmp/wp-tests
-fi
-
-if [ ! $WP_PORT ]; then
-  WP_PORT=8080
-fi
+WP_PATH=${WP_PATH-/tmp/wp-tests}
+WP_PORT=${WP_PORT-8080}
 
 ./wp-cli-nightly.phar server \
 --host=0.0.0.0 \

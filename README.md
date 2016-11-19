@@ -18,10 +18,12 @@ Then you can access [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
 ### Envinronment variables
 
 
-| Name         | Desctiption                                                |
-|--------------|------------------------------------------------------------|
-| `WP_THEME`   | Slug or Zip URL of the Theme. See `wp help theme install`. |
-| `WP_VERSION` | WordPress version. See `wp help core download`.            |
-| `WP_PATH`    | Path to the Document Root. Default is `/tmp/wp-tests`.     |
-| `WP_PORT`    | The port number to bind the server to. Default is `8080`.  |
-| `DB_PASS`    | MySQL root password. Default is empty.                     |
+| Name             | Desctiption                                                |
+|------------------|------------------------------------------------------------|
+| `WP_THEME`       | Slug or Zip URL of the Theme. See `wp help theme install`. |
+| `WP_VERSION`     | WordPress version. See `wp help core download`.            |
+| `WP_PATH`        | Path to the Document Root. Default is `/tmp/wp-tests`.     |
+| `WP_PORT`        | The port number to bind the server to. Default is `8080`.  |
+| `WP_DB_NAME`     | MySQL database name. Default is `wp-tests`.                |
+| `WP_DB_USER`     | MySQL database user. Default is `root`.                    |
+| `WP_DB_PASSWORD` | MySQL password. Default is empty.                          |
