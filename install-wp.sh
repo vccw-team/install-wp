@@ -64,6 +64,6 @@ PHP
 curl -o /tmp/themeunittestdata.wordpress.xml https://raw.githubusercontent.com/WPTRT/theme-unit-test/master/themeunittestdata.wordpress.xml
 ./wp-cli-nightly.phar import /tmp/themeunittestdata.wordpress.xml --authors=create --path=$WP_PATH > /dev/null 2>&1
 
-if [ $WP_THEME ]; then
+if [ $WP_THEME ]  && [ ! "default" = $WP_THEME ]; then
   ./wp-cli-nightly.phar theme install $WP_THEME --activate --path=$WP_PATH --force
 fi
