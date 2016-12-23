@@ -7,7 +7,7 @@ WP_PORT=${WP_PORT-8080}
 WP_ERROR_LOG=${WP_ERROR_LOG-/tmp/wp-error.log}
 
 cat << INI > /tmp/php.ini
-memory_limit = 512M
+memory_limit = -1
 error_reporting = E_ALL
 log_errors = On
 error_log = $WP_ERROR_LOG
